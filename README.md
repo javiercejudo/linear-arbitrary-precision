@@ -4,7 +4,11 @@
 [![Coverage Status](https://coveralls.io/repos/javiercejudo/linear-arbitrary-precision/badge.svg?branch=master)](https://coveralls.io/r/javiercejudo/linear-arbitrary-precision?branch=master)
 [![Code Climate](https://codeclimate.com/github/javiercejudo/linear-arbitrary-precision/badges/gpa.svg)](https://codeclimate.com/github/javiercejudo/linear-arbitrary-precision)
 
-Arbitrary precision for linear operations
+Wrapper for linear functionality in
+[big.js](https://github.com/MikeMcl/big.js),
+[bignumber.js](https://github.com/MikeMcl/bignumber.js)
+and
+[decimal.js](https://github.com/MikeMcl/decimal.js)
 
 ## Install
 
@@ -18,11 +22,11 @@ Arbitrary precision for linear operations
 var decimalFactory = require('linear-arbitrary-precision');
 var Decimal = decimalFactory();
 
-decimalFactory.getPrecision(); // => number (eg. 20)
+Decimal.getPrecision(); // => number (eg. 20)
 
 new Decimal(1).div(3).toString(); // => '0.33333333333333333333'
 
-decimalFactory.setPrecision(5); // => number (eg. 20)
+Decimal.setPrecision(5);
 
 new Decimal(1).div(3).toString(); // => '0.33333'
 ```
