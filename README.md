@@ -18,12 +18,9 @@ and
 
 ### Adapters
 
-- big.js
-- bignumber.js
-- decimal.js
-- linear-converter
-- linear-conversion
-- very-simple-statistics
+- [big.js adapter](https://github.com/javiercejudo/bigjs-adapter)
+- [bignumber.js adapter](https://github.com/javiercejudo/bignumberjs-adapter)
+- [decimal.js adapter](https://github.com/javiercejudo/decimaljs-adapter)
 
 ### Factory and configuration
 
