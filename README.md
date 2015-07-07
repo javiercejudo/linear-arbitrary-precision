@@ -4,11 +4,11 @@
 [![Coverage Status](https://coveralls.io/repos/javiercejudo/linear-arbitrary-precision/badge.svg?branch=master)](https://coveralls.io/r/javiercejudo/linear-arbitrary-precision?branch=master)
 [![Code Climate](https://codeclimate.com/github/javiercejudo/linear-arbitrary-precision/badges/gpa.svg)](https://codeclimate.com/github/javiercejudo/linear-arbitrary-precision)
 
-Wrapper for linear functionality in
+Abstraction for linear functionality in
 [big.js](https://github.com/MikeMcl/big.js),
-[bignumber.js](https://github.com/MikeMcl/bignumber.js)
-and
+[bignumber.js](https://github.com/MikeMcl/bignumber.js),
 [decimal.js](https://github.com/MikeMcl/decimal.js)
+and others via adapters.
 
 ## Install
 
