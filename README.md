@@ -16,6 +16,8 @@ and
 
 ## Usage
 
+See [CodePen example](http://codepen.io/javiercejudo/pen/oXqGgZ?editors=101)
+
 ### Adapters
 
 - [big.js adapter](https://github.com/javiercejudo/bigjs-adapter)
