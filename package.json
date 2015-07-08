@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/javiercejudo/linear-arbitrary-precision#readme",
   "devDependencies": {
+    "floating": "^1.0.0",
     "gulp": "^3.8.11",
     "gulp-coverage": "^0.3.34",
     "gulp-coveralls": "^0.1.3",
@@ -33,6 +34,7 @@
     "should": "^5.0.0"
   },
   "dependencies": {
-    "floating": "^1.0.0"
+    "assert-error": "^1.0.3",
+    "lodash.isstring": "^3.0.1"
   }
 }

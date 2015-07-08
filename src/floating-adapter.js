@@ -14,7 +14,7 @@ module.exports = {
   div: div,
   toString: toString,
   valueOf: valueOf,
-  toJSON: valueOf
+  parseInput: parseInput
 };
 
 // not necessarily true nor enforceable
@@ -50,4 +50,8 @@ function toString(floating) {
 
 function valueOf(floating) {
   return floating.valueOf();
+}
+
+function parseInput(x) {
+  return Number(x);
 }

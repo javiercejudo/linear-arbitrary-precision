@@ -2,13 +2,19 @@
 
 'use strict';
 
+var isString = require('lodash.isstring');
+var assert = require('assert-error');
+
 module.exports = factory;
 
 function factory(adapter) {
-  var DecimalImpl = adapter.getInstance();
+  var Impl = adapter.getInstance();
 
   function Decimal(x) {
-    var value = new DecimalImpl(x);
+    assert(this instanceof Decimal, new Error('Decimal must be called with new'));
+    assert(isString(x), new TypeError('Expected a string but instead got ' + typeof x));
+
+    var value = new Impl(adapter.parseInput(x));
 
     this.val = function val() {
       return value;
@@ -22,22 +28,22 @@ function factory(adapter) {
   var p = Decimal.prototype;
 
   p.plus = function plus(x) {
-    return new Decimal(adapter.toJSON(adapter.plus(this.val(), x.val())));
+    return newDecimalFromImpl(adapter.plus(this.val(), x.val()));
   };
 
   p.minus = function minus(x) {
-    return new Decimal(adapter.toJSON(adapter.minus(this.val(), x.val())));
+    return newDecimalFromImpl(adapter.minus(this.val(), x.val()));
   };
 
   p.times = function times(x) {
-    return new Decimal(adapter.toJSON(adapter.times(this.val(), x.val())));
+    return newDecimalFromImpl(adapter.times(this.val(), x.val()));
   };
 
   p.div = function div(x) {
-    return new Decimal(adapter.toJSON(adapter.div(this.val(), x.val())));
+    return newDecimalFromImpl(adapter.div(this.val(), x.val()));
   };
 
-  p.toString = function toString() {
+  p.toString = p.toJSON = function toString() {
     return adapter.toString(this.val());
   };
 
@@ -45,24 +51,24 @@ function factory(adapter) {
     return adapter.valueOf(this.val());
   };
 
-  p.toJSON = function toJSON() {
-    return adapter.toJSON(this.val());
-  };
-
   function getPrecision() {
-    return adapter.getPrecision(DecimalImpl);
+    return adapter.getPrecision(Impl);
   }
 
   function setPrecision(n) {
-    adapter.setPrecision(DecimalImpl, n);
+    adapter.setPrecision(Impl, n);
   }
 
-  function JSONReviver(key, value) {
+  function JSONReviver(key, x) {
     if (key === '') {
-      return value;
+      return x;
     }
 
-    return new Decimal(value);
+    return new Decimal(x);
+  }
+
+  function newDecimalFromImpl(x) {
+    return new Decimal(adapter.toString(x))
   }
 
   return Decimal;
