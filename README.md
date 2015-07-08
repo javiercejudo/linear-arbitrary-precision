@@ -80,7 +80,7 @@ JSON.parse(stringified, Decimal40.JSONReviver)[0];
 // => new Decimal40('0.3333333333333333333333333333333333333333')
 ```
 
-See [spec](test/spec.js).
+See [spec](test/floating-adapter.js).
 
 ## Related projects
 
