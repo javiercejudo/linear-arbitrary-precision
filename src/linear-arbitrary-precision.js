@@ -5,9 +5,7 @@
 var isString = require('lodash.isstring');
 var assert = require('assert-error');
 
-module.exports = factory;
-
-function factory(adapter) {
+module.exports = function factory(adapter) {
   var Impl = adapter.getInstance();
 
   function Decimal(x) {
@@ -72,4 +70,4 @@ function factory(adapter) {
   }
 
   return Decimal;
-}
+};
