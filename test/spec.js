@@ -3,9 +3,9 @@
 'use strict';
 
 require('should');
-var decimalFactory = require('../src/arbitrary-precision');
 
-var adapter = require('../src/floating-adapter');
+var decimalFactory = require('../src/linear-arbitrary-precision');
+var adapter = require('floating-adapter');
 
 describe('linear operations with floating', function() {
   var Decimal = decimalFactory(adapter);
