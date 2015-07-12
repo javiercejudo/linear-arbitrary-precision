@@ -20,6 +20,7 @@ See [CodePen example](http://codepen.io/javiercejudo/pen/oXqGgZ?editors=101)
 
 ### Adapters
 
+- [[adapter]](https://github.com/javiercejudo/linear-bigjs-adapter) [[lib]](https://github.com/javiercejudo/linear-big.js) linear-big.js
 - [[adapter]](https://github.com/javiercejudo/bigjs-adapter) [[lib]](https://github.com/MikeMcl/big.js) big.js
 - [[adapter]](https://github.com/javiercejudo/bignumberjs-adapter) [[lib]](https://github.com/MikeMcl/bignumber.js) bignumber.js
 - [[adapter]](https://github.com/javiercejudo/decimaljs-adapter) [[lib]](https://github.com/MikeMcl/decimal.js) decimal.js
