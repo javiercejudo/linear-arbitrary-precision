@@ -23,8 +23,10 @@ See [CodePen example](http://codepen.io/javiercejudo/pen/oXqGgZ?editors=101)
 - [[adapter]](https://github.com/javiercejudo/bigjs-adapter) [[lib]](https://github.com/MikeMcl/big.js) big.js
 - [[adapter]](https://github.com/javiercejudo/bignumberjs-adapter) [[lib]](https://github.com/MikeMcl/bignumber.js) bignumber.js
 - [[adapter]](https://github.com/javiercejudo/decimaljs-adapter) [[lib]](https://github.com/MikeMcl/decimal.js) decimal.js
+- [[adapter]](https://github.com/javiercejudo/bigdecimal-adapter) [[lib]](https://github.com/iriscouch/bigdecimal.js) bigdecimal.js
 - [[adapter]](https://github.com/javiercejudo/floating-adapter) [[lib]](https://github.com/javiercejudo/floating) floating
 - [[adapter]](https://github.com/javiercejudo/linear-converter-adapter) [[lib]](https://github.com/javiercejudo/linear-converter) linear-converter
+- [[adapter]](https://github.com/javiercejudo/very-simple-statistics-adapter) [[lib]](https://github.com/sumanla13a/statistics-module) statistics-module
 
 See [up to date list](https://www.npmjs.com/browse/keyword/linear-arbitrary-precision-adapter).
 
