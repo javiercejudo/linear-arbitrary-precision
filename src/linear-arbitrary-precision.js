@@ -66,7 +66,7 @@ module.exports = function factory(adapter) {
   }
 
   function newDecimalFromImpl(x) {
-    return new Decimal(adapter.toString(x))
+    return new Decimal(adapter.toString(x));
   }
 
   return Decimal;

@@ -7,7 +7,7 @@ require('should');
 var decimalFactory = require('../src/linear-arbitrary-precision');
 var adapter = require('floating-adapter');
 
-describe('linear operations with floating', function() {
+describe('linear operations with Floating', function() {
   var Decimal = decimalFactory(adapter);
 
   describe('constructor', function() {
