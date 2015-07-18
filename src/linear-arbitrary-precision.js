@@ -19,6 +19,7 @@ module.exports = function factory(adapter) {
     };
   }
 
+  Decimal.getAdapter = getAdapter;
   Decimal.getPrecision = getPrecision;
   Decimal.setPrecision = setPrecision;
   Decimal.JSONReviver = JSONReviver;
@@ -48,6 +49,10 @@ module.exports = function factory(adapter) {
   p.valueOf = function valueOf() {
     return adapter.valueOf(this.val());
   };
+
+  function getAdapter() {
+    return adapter;
+  }
 
   function getPrecision() {
     return adapter.getPrecision(Impl);

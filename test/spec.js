@@ -24,6 +24,12 @@ describe('linear operations with Floating', function() {
     });
   });
 
+  describe('getAdapter', function() {
+    it('should return the adapter that was passed in', function() {
+      Decimal.getAdapter().should.be.exactly(adapter);
+    });
+  });
+
   describe('precision', function() {
     var initialPrecision = Decimal.getPrecision();
 
