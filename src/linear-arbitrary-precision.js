@@ -5,6 +5,14 @@
 var isString = require('lodash.isstring');
 var assert = require('assert-error');
 
+var extensions = [
+  require('equals-arbitrary-precision')
+];
+
+function extend(Decimal, extender) {
+  return extender(Decimal);
+}
+
 module.exports = function factory(adapter) {
   var Impl = adapter.getInstance();
 
@@ -74,5 +82,5 @@ module.exports = function factory(adapter) {
     return new Decimal(adapter.toString(x));
   }
 
-  return Decimal;
+  return extensions.reduce(extend, Decimal);
 };

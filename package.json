@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "assert-error": "^1.0.3",
+    "equals-arbitrary-precision": "^1.0.1",
     "lodash.isstring": "^3.0.1"
   }
 }

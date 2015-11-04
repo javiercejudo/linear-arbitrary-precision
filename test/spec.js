@@ -13,6 +13,7 @@ describe('linear operations with Floating', function() {
   describe('constructor', function() {
     it('should throw if called without new', function() {
       (function() {
+        /*jshint -W064*/
         Decimal('1');
       }).should.throw();
     });
@@ -63,6 +64,11 @@ describe('linear operations with Floating', function() {
 
     it('should have a div method', function() {
       new Decimal('0.3').div(new Decimal('0.2')).valueOf().should.be.exactly(0.3 / 0.2);
+    });
+
+    it('should have an equals method', function() {
+      new Decimal('1').equals(new Decimal('1')).should.be.exactly(true);
+      new Decimal('1').equals(new Decimal('2')).should.be.exactly(false);
     });
   });
 

@@ -52,12 +52,12 @@ new Decimal('1').div(new Decimal('3')).valueOf(); // => '0.33333'
 
 ```js
 new Decimal('0.1').plus(new Decimal('0.2')).valueOf(); // => '0.3'
-
 new Decimal('0.3').minus(new Decimal('0.1')).valueOf(); // => '0.2'
-
 new Decimal('0.6').times(new Decimal('3')).valueOf(); // => '1.8'
-
 new Decimal('0.3').div(new Decimal('0.2')).valueOf(); // => '1.5'
+
+new Decimal('1').equals(new Decimal('1')); // => true
+new Decimal('1').equals(new Decimal('2')); // => false
 ```
 
 ### toString, valueOf and toJSON
