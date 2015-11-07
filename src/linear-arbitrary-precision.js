@@ -4,39 +4,16 @@
 
 var isString = require('lodash.isstring');
 var assert = require('assert-error');
+var coreArbitraryPrecision = require('core-arbitrary-precision');
 
 var extensions = [
+  require('plus-arbitrary-precision'),
   require('equals-arbitrary-precision')
 ];
 
-function extend(Decimal, extender) {
-  return extender(Decimal);
-}
-
 module.exports = function factory(adapter) {
-  var Impl = adapter.getInstance();
-
-  function Decimal(x) {
-    assert(this instanceof Decimal, new Error('Decimal must be called with new'));
-    assert(isString(x), new TypeError('Expected a string but instead got ' + typeof x));
-
-    var value = new Impl(adapter.parseInput(x));
-
-    this.val = function val() {
-      return value;
-    };
-  }
-
-  Decimal.getAdapter = getAdapter;
-  Decimal.getPrecision = getPrecision;
-  Decimal.setPrecision = setPrecision;
-  Decimal.JSONReviver = JSONReviver;
-
+  var Decimal = coreArbitraryPrecision(adapter);
   var p = Decimal.prototype;
-
-  p.plus = function plus(x) {
-    return newDecimalFromImpl(adapter.plus(this.val(), x.val()));
-  };
 
   p.minus = function minus(x) {
     return newDecimalFromImpl(adapter.minus(this.val(), x.val()));
@@ -50,37 +27,13 @@ module.exports = function factory(adapter) {
     return newDecimalFromImpl(adapter.div(this.val(), x.val()));
   };
 
-  p.toString = p.toJSON = function toString() {
-    return adapter.toString(this.val());
-  };
-
-  p.valueOf = function valueOf() {
-    return adapter.valueOf(this.val());
-  };
-
-  function getAdapter() {
-    return adapter;
-  }
-
-  function getPrecision() {
-    return adapter.getPrecision(Impl);
-  }
-
-  function setPrecision(n) {
-    adapter.setPrecision(Impl, n);
-  }
-
-  function JSONReviver(key, x) {
-    if (key === '') {
-      return x;
-    }
-
-    return new Decimal(x);
-  }
-
   function newDecimalFromImpl(x) {
     return new Decimal(adapter.toString(x));
   }
 
   return extensions.reduce(extend, Decimal);
 };
+
+function extend(Decimal, extender) {
+  return extender(Decimal);
+}
