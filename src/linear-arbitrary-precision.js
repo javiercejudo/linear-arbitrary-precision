@@ -5,12 +5,12 @@
 var isString = require('lodash.isstring');
 var assert = require('assert-error');
 var coreArbitraryPrecision = require('core-arbitrary-precision');
-var tap = require('@javiercejudo/tap');
+var flow = require('lodash.flow');
 
-var extensions = [
+var extend = flow(
   require('plus-arbitrary-precision'),
   require('equals-arbitrary-precision')
-];
+);
 
 module.exports = function factory(adapter) {
   var Decimal = coreArbitraryPrecision(adapter);
@@ -32,5 +32,5 @@ module.exports = function factory(adapter) {
     return new Decimal(adapter.toString(x));
   }
 
-  return extensions.reduce(tap, Decimal);
+  return extend(Decimal);
 };
