@@ -35,12 +35,12 @@
     "should": "^7.1.1"
   },
   "dependencies": {
-    "assert-error": "^1.0.3",
     "core-arbitrary-precision": "^1.0.1",
+    "div-arbitrary-precision": "^1.0.0",
     "equals-arbitrary-precision": "^1.0.1",
     "lodash.flow": "^3.2.1",
-    "lodash.isstring": "^3.0.1",
     "minus-arbitrary-precision": "^1.0.0",
-    "plus-arbitrary-precision": "^1.0.0"
+    "plus-arbitrary-precision": "^1.0.0",
+    "times-arbitrary-precision": "^1.0.0"
   }
 }
