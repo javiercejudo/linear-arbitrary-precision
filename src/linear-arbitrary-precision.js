@@ -9,16 +9,13 @@ var flow = require('lodash.flow');
 
 var extend = flow(
   require('plus-arbitrary-precision'),
+  require('minus-arbitrary-precision'),
   require('equals-arbitrary-precision')
 );
 
 module.exports = function factory(adapter) {
   var Decimal = coreArbitraryPrecision(adapter);
   var p = Decimal.prototype;
-
-  p.minus = function minus(x) {
-    return newDecimalFromImpl(adapter.minus(this.val(), x.val()));
-  };
 
   p.times = function times(x) {
     return newDecimalFromImpl(adapter.times(this.val(), x.val()));
