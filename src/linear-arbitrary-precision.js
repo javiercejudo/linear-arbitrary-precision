@@ -10,6 +10,7 @@ var extend = flow(
   require('minus-arbitrary-precision'),
   require('times-arbitrary-precision'),
   require('div-arbitrary-precision'),
+  require('mod-arbitrary-precision'),
   require('equals-arbitrary-precision')
 );
 
