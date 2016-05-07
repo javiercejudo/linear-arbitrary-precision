@@ -1,6 +1,6 @@
 {
   "name": "linear-arbitrary-precision",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "Linear arbitrary precision",
   "main": "src/linear-arbitrary-precision.js",
   "scripts": {
