@@ -2,13 +2,14 @@
 
 'use strict';
 
-require('should');
+var should = require('should');
 
 var decimalFactory = require('../src/linear-arbitrary-precision');
 var adapter = require('floating-adapter');
 
 describe('linear operations with Floating', function() {
   var Decimal = decimalFactory(adapter);
+  var ONE = new Decimal('1');
 
   describe('constructor', function() {
     it('should throw if called without new', function() {
@@ -70,6 +71,14 @@ describe('linear operations with Floating', function() {
       new Decimal('1').equals(new Decimal('1')).should.be.exactly(true);
       new Decimal('1').equals(new Decimal('2')).should.be.exactly(false);
     });
+
+    it('should have an inequality methods', function() {
+      should(ONE.lt).have.type('function');
+      should(ONE.lte).have.type('function');
+      should(ONE.gt).have.type('function');
+      should(ONE.gte).have.type('function');
+      should(ONE.cmp).have.type('function');
+    });
   });
 
   describe('toString, valueOf and JSON', function() {
@@ -90,11 +99,11 @@ describe('linear operations with Floating', function() {
 
     it('should play nicely with JSON.stringify()', function() {
       var decimalOne = new Decimal('1');
-      var stringified = JSON.stringify([decimalOne]);
+      var stringified = JSON.stringify(decimalOne);
 
-      stringified.should.be.exactly('["1"]');
+      stringified.should.be.exactly('"1"');
 
-      JSON.parse(stringified, Decimal.JSONReviver)[0].should.eql(decimalOne);
+      JSON.parse(stringified, Decimal.reviver).should.eql(decimalOne);
     });
   });
 });

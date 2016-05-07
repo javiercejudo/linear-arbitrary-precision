@@ -11,9 +11,8 @@ var extend = flow(
   require('times-arbitrary-precision'),
   require('div-arbitrary-precision'),
   require('mod-arbitrary-precision'),
-  require('equals-arbitrary-precision')
+  require('equals-arbitrary-precision'),
+  require('inequality-arbitrary-precision')
 );
 
-module.exports = function factory(adapter) {
-  return extend(coreArbitraryPrecision(adapter));
-};
+module.exports = flow(coreArbitraryPrecision, extend);
