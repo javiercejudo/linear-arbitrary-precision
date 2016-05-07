@@ -83,7 +83,7 @@ var decimalThird = new Decimal40('1').div(new Decimal('3'));
 var stringified = JSON.stringify(decimalThird);
 // => '"0.3333333333333333333333333333333333333333"'
 
-JSON.parse(stringified, Decimal40.JSONReviver);
+JSON.parse(stringified, Decimal40.reviver);
 // => new Decimal40('0.3333333333333333333333333333333333333333')
 ```
 
