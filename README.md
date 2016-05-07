@@ -80,10 +80,10 @@ Decimal40.setPrecision(40);
 
 var decimalThird = new Decimal40('1').div(new Decimal('3'));
 
-var stringified = JSON.stringify([decimalThird]);
-// => '["0.3333333333333333333333333333333333333333"]'
+var stringified = JSON.stringify(decimalThird);
+// => '"0.3333333333333333333333333333333333333333"'
 
-JSON.parse(stringified, Decimal40.JSONReviver)[0];
+JSON.parse(stringified, Decimal40.JSONReviver);
 // => new Decimal40('0.3333333333333333333333333333333333333333')
 ```
 
