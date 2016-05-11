@@ -63,8 +63,12 @@ describe('linear operations with Floating', function() {
       new Decimal('0.3').div(new Decimal('0.2')).valueOf().should.be.exactly(0.3 / 0.2);
     });
 
-    it('should have a div method', function() {
+    it('should have a mod method', function() {
       new Decimal('12').mod(new Decimal('5')).valueOf().should.be.exactly(2);
+    });
+
+    it('should have an abs method', function() {
+      new Decimal('-12').abs().valueOf().should.be.exactly(12);
     });
 
     it('should have an equals method', function() {
